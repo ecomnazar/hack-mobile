@@ -39,9 +39,8 @@ export const TreeDetailsModal = () => {
     (state) => state.modal.bottomSheet
   );
 
-  const onClose = () => {
+  const onClose = () =>
     dispatch(toggleBottomSheet({ modal: false, type, data }));
-  };
 
   // @ts-ignore
   const tree: ITree = data || {};

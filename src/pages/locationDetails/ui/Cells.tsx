@@ -8,18 +8,18 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { toggleBottomSheet } from "@/entities/ui/modal/model/modalSlice";
 
-export const Cells = () => {
-  const filledGradient: [string, string, ...string[]] = [
-    "#92B246",
-    "#749D41",
-    "#5A893F",
-  ];
-  const redGradient: [string, string, ...string[]] = [
-    "#DA3E38",
-    "#A73627",
-    "#DA3E38",
-  ];
+const filledGradient: [string, string, ...string[]] = [
+  "#92B246",
+  "#749D41",
+  "#5A893F",
+];
+const redGradient: [string, string, ...string[]] = [
+  "#DA3E38",
+  "#A73627",
+  "#DA3E38",
+];
 
+export const Cells = () => {
   const dispatch = useAppDispatch();
 
   const renderGrape = () => (

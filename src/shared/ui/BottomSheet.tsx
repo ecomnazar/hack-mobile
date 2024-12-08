@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
@@ -20,9 +20,7 @@ export const BottomSheet: React.FC<Props> = ({ isOpen, onClose, children }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-  const handleSheetChanges = useCallback((index: number) => {
-    onClose();
-  }, []);
+  const handleSheetChanges = () => onClose();
 
   React.useEffect(() => {
     if (isOpen) {
