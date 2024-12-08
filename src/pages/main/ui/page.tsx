@@ -1,64 +1,41 @@
-import { colors } from "@/shared/constants/colors";
 import { Container } from "@/shared/ui/Container";
-import { Flex } from "@/shared/ui/Flex";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { LocationCard } from "./LocationCard";
 import { images } from "@/shared/constants/images";
+import { SCREEN_PADDING_TOP } from "@/shared/constants/sizes";
+import { Header } from "./Header";
+import { FixedScanButton } from "@/widgets/fixedScanButton";
 
 export const MainPage = () => {
   return (
-    <ScrollView style={{ paddingBottom: 20 }}>
-      <Container>
-        <View style={{ paddingTop: 24 }}>
-          <Flex style={{ marginBottom: 10 }} enableSpaceBetween>
-            <Flex style={{ columnGap: 8 }}>
-              <View
-                style={{
-                  backgroundColor: colors.primary,
-                  width: 36,
-                  height: 36,
-                  borderRadius: 100,
-                }}
-              ></View>
-              <Text style={{ fontWeight: 600, fontSize: 15 }}>Bagban</Text>
-            </Flex>
-            <View
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 100,
-                backgroundColor: colors.gray,
-              }}
-            >
-              {" "}
-            </View>
-          </Flex>
-          <Text style={{ fontSize: 24 }}>
-            Take care of your{"\n"}plants easily here!
-          </Text>
-        </View>
+    <>
+      <ScrollView style={{ paddingBottom: SCREEN_PADDING_TOP, flex: 1 }}>
+        <Container>
+          <Header />
 
-        <View style={{ marginTop: 30, rowGap: 20 }}>
-          <LocationCard
-            title="Yellow Mustard"
-            description="Lorem ipsum dolor sit."
-            imageUrl={images.location1}
-            path=""
-          />
-          <LocationCard
-            title="Yellow Mustard"
-            description="Lorem ipsum dolor sit."
-            imageUrl={images.location1}
-            path=""
-          />
-          <LocationCard
-            title="Yellow Mustard"
-            description="Lorem ipsum dolor sit."
-            imageUrl={images.location1}
-            path=""
-          />
-        </View>
-      </Container>
-    </ScrollView>
+          <View style={{ marginTop: 30, rowGap: 20, paddingBottom: 100 }}>
+            <LocationCard
+              title="Бахерден"
+              description="Улица Ataturk, Дом 123, общая площадь 1200 кв/м"
+              imageUrl={images.location1}
+              id={1}
+            />
+            <LocationCard
+              title="Аннау"
+              description="Улица Jemagat, Дом 330, общая площадь 1330 кв/м"
+              imageUrl={images.location2}
+              id={2}
+            />
+            <LocationCard
+              title="Безмейин"
+              description="Улица Asudalyk, Jay 771, общая площадь 7770 кв/м"
+              imageUrl={images.location1}
+              id={3}
+            />
+          </View>
+        </Container>
+      </ScrollView>
+      <FixedScanButton />
+    </>
   );
 };

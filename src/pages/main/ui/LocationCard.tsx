@@ -1,24 +1,25 @@
-import { colors } from "@/shared/constants/colors";
-import { images } from "@/shared/constants/images";
+import React from "react";
 import { Image } from "expo-image";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import { colors } from "@/shared/constants/colors";
+import { useRouter } from "expo-router";
 
 interface Props {
   title: string;
   description: string;
   imageUrl: string;
-  path: string;
+  id: number;
 }
 
 export const LocationCard: React.FC<Props> = ({
   title,
   description,
   imageUrl,
-  path,
+  id,
 }) => {
+  const router = useRouter();
   return (
     <View
       style={{
@@ -29,7 +30,9 @@ export const LocationCard: React.FC<Props> = ({
       }}
     >
       <Image source={imageUrl} style={{ width: "100%", height: "100%" }} />
-      <View
+      <TouchableOpacity
+        activeOpacity={1}
+        onPress={() => router.push(`/location/${id}`)}
         style={{
           backgroundColor: colors.white,
           width: 100,
@@ -62,7 +65,8 @@ export const LocationCard: React.FC<Props> = ({
             style={{ transform: [{ rotate: "135deg" }] }}
           />
         </View>
-      </View>
+      </TouchableOpacity>
+
       <View
         style={{
           height: 100,
